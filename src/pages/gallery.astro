@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Galleri">
+  <section class="page-hero">
+    <div>
+      <p class="eyebrow">Galleri</p>
+      <h1>Vår dag i bilder</h1>
+      <p class="lead">
+        En plats för bilder från vår tid tillsammans och förberedelserna inför den stora dagen.
+      </p>
+    </div>
+  </section>
+
+  <section class="gallery-grid">
+    <article class="gallery-card">
+      <strong>Bild 1</strong>
+      <p>Lägg till din första bröllopsbild här.</p>
+    </article>
+    <article class="gallery-card">
+      <strong>Bild 2</strong>
+      <p>En vacker ögonblicksbild från er resa.</p>
+    </article>
+    <article class="gallery-card">
+      <strong>Bild 3</strong>
+      <p>Fyll på med fler bilder från er kärlekshistoria.</p>
+    </article>
+    <article class="gallery-card">
+      <strong>Bild 4</strong>
+      <p>En plats för era favoritögonblick.</p>
+    </article>
+    <article class="gallery-card">
+      <strong>Bild 5</strong>
+      <p>Visa gärna stämningen från dagen.</p>
+    </article>
+    <article class="gallery-card">
+      <strong>Bild 6</strong>
+      <p>Här kan du byta ut text mot riktiga foton.</p>
+    </article>
+  </section>
+</Layout>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin-top: 40px;
+  }
+
+  .gallery-card {
+    min-height: 210px;
+    padding: 30px;
+    border-radius: 30px;
+    background: linear-gradient(180deg, rgba(255, 250, 249, 0.96), rgba(245, 238, 233, 0.96));
+    border: 1px solid rgba(155, 119, 102, 0.18);
+    box-shadow: 0 24px 60px rgba(69, 45, 30, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .gallery-card strong {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    color: #2f3438;
+  }
+
+  .gallery-card p {
+    margin: 0;
+    color: #5c5f63;
+    line-height: 1.7;
+  }
+</style>

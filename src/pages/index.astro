@@ -1,0 +1,174 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Oliver & Matilda">
+  <section class="page-hero index-hero">
+    <img class="hero-image" src="/images/hero.jpg" alt="Oliver och Matilda" />
+    <div class="hero-copy">
+      <p class="eyebrow">Bröllop i Bosjökloster</p>
+      <h1>Oliver & Matilda</h1>
+      <p class="hero-subtitle">14 augusti 2027</p>
+      <div class="hero-actions">
+        <a class="link-btn" href="/osa">OSA</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-intro">
+    <div class="home-intro-card">
+      <span class="section-label">VÅR HISTORIA</span>
+      <h2>Vi ska gifta oss :)</h2>
+      <p>Oliver och Matilda planerar en varm och personlig bröllopsdag i Bosjökloster. Här hittar du information om dagen, platsen och hur du svarar på inbjudan.</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .index-hero {
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    margin-top: -40px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(1.05) contrast(1.05);
+  }
+
+  .index-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18, 18, 18, 0.25), rgba(18, 18, 18, 0.55));
+    z-index: 1;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 920px);
+    padding: clamp(40px, 5vw, 64px);
+    text-align: center;
+    background: rgba(20, 20, 20, 0.62);
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 38px 80px rgba(14, 14, 14, 0.28);
+  }
+
+  .eyebrow {
+    margin-bottom: 18px;
+    font-size: 0.82rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .hero-copy h1 {
+    margin: 0;
+    font-size: clamp(3rem, 6vw, 5.25rem);
+    line-height: 1.03;
+    color: #ffffff;
+  }
+
+  .hero-subtitle {
+    margin-top: 24px;
+    font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .hero-actions {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.08);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .link-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  .home-intro {
+    display: grid;
+    place-items: center;
+    padding: 60px clamp(20px, 5vw, 80px);
+  }
+
+  .home-intro-card {
+    max-width: 860px;
+    background: rgba(255, 255, 255, 0.94);
+    padding: 48px;
+    border-radius: 32px;
+    border: 1px solid rgba(155, 119, 102, 0.18);
+    box-shadow: 0 30px 80px rgba(69, 45, 30, 0.12);
+    text-align: center;
+  }
+
+  .section-label {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(214, 148, 133, 0.12);
+    color: #a97164;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .home-intro-card h2 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 3rem);
+    letter-spacing: 0.04em;
+    color: #2f3438;
+  }
+
+  .home-intro-card p {
+    margin-top: 20px;
+    color: #5c5f63;
+    line-height: 1.75;
+  }
+
+  @media (max-width: 720px) {
+    .hero-copy {
+      padding: 30px 24px;
+    }
+
+    .hero-copy h1 {
+      font-size: 3.4rem;
+    }
+
+    .home-intro-card {
+      padding: 30px 24px;
+    }
+  }
+</style>

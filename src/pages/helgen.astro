@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const friday = [
+  { time: 'Kring lunch', title: 'Golf på Bosjökloster GK', text: 'Vi anordnar en avslappnad golftävling på Bosjökloster Golfklubb för alla som vill vara med och spela.' },
+  { time: 'Samtidigt', title: 'Picknick i parken', text: 'För er som inte spelar golf blir det picknick i parken med bubbel och möjlighet att bara umgås och njuta av eftermiddagen.' },
+  { time: 'På kvällen', title: 'Mingelmiddag på Höörs Gästis', text: 'På kvällen samlas vi på Höörs Gästis för en avslappnad mingelmiddag tillsammans. Det är också här många av oss kommer att bo under helgen.' },
+];
+
+const saturday = [
+  { time: 'Förmiddag', title: 'Fri tid', text: 'Inget är planerat under förmiddagen, så använd tiden precis som ni vill.', link: { href: '/upptack-omradet', label: 'Se våra tips för området' } },
+  { time: '16.00', title: 'Vigsel på Bosjökloster', text: 'Vi samlas på Bosjökloster för vigsel och början på kvällens firande.' },
+  { time: 'Efter vigseln', title: 'Bröllopsskål', text: 'Efter vigseln fortsätter vi med bröllopsskål, mingel och tid tillsammans innan middagen.' },
+  { time: 'Kväll', title: 'Middag & fest', text: 'Därefter väntar middag, tal, dans och en lång kväll tillsammans.' },
+];
+---
+
+<Layout title="Helgen">
+  <div class="weekend-page">
+    <section class="weekend-hero" aria-labelledby="weekend-title">
+      <p class="kicker">13–14 AUGUSTI 2027</p>
+      <h1 id="weekend-title">Helgen</h1>
+      <p class="weekend-hero__intro">Vi hoppas att ni vill göra en hel helg av det tillsammans med oss. Fredagen blir en avslappnad start med aktiviteter, middag och mingel – och på lördagen är det dags för bröllop på Bosjökloster.</p>
+      <p class="weekend-hero__note">Exakta tider och detaljer fylls på närmare bröllopet.</p>
+    </section>
+
+    <section class="day day--friday" aria-labelledby="friday-title">
+      <header class="day__header">
+        <p class="kicker">FREDAG 13 AUGUSTI</p>
+        <h2 id="friday-title">Vi startar helgen tillsammans</h2>
+        <p>För er som är på plats redan på fredagen börjar vi helgen i lugnt tempo – med golf, picknick, bubbel och en gemensam middag på kvällen.</p>
+      </header>
+      <div class="editorial-timeline">
+        {friday.map((item) => (
+          <article class="timeline-item">
+            <p class="timeline-item__time">{item.time}</p>
+            <div><h3>{item.title}</h3><p>{item.text}</p></div>
+          </article>
+        ))}
+      </div>
+      <p class="day__note">Mer information om anmälan till golfen och fredagens upplägg kommer senare.</p>
+    </section>
+
+    <section class="day day--saturday" aria-labelledby="saturday-title">
+      <header class="day__header">
+        <p class="kicker">LÖRDAG 14 AUGUSTI</p>
+        <h2 id="saturday-title">Bröllopsdagen</h2>
+        <p>Lördagsförmiddagen är helt fri. Sov länge, ta ett dopp, gå på spa eller upptäck området – sedan ses vi på Bosjökloster.</p>
+      </header>
+      <div class="editorial-timeline">
+        {saturday.map((item) => (
+          <article class="timeline-item">
+            <p class="timeline-item__time">{item.time}</p>
+            <div>
+              <h3>{item.title}</h3><p>{item.text}</p>
+              {item.link && <a class="text-link" href={item.link.href}>{item.link.label}<span aria-hidden="true"> →</span></a>}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="more-info" aria-labelledby="more-title">
+      <div><p class="kicker">BRA ATT VETA</p><h2 id="more-title">Mer kommer</h2></div>
+      <div><p>Det här är den övergripande planen för helgen. Exakta tider, transportinformation och fler detaljer kommer närmare bröllopet.</p><a href="/travel">Praktisk information</a></div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .weekend-page { --ivory:#f8f4ed; --powder:#eedfd9; --ink:#292522; color:var(--ink); }
+  .weekend-page section { margin-bottom:clamp(60px,8vw,100px); }
+  .kicker { margin:0 0 20px; color:var(--burgundy); font-size:.72rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; }
+  .weekend-hero { max-width:880px; margin-inline:auto; padding:clamp(72px,10vw,115px) 20px clamp(60px,8vw,88px); text-align:center; }
+  .weekend-hero::after { content:''; display:block; width:1px; height:56px; margin:38px auto 0; background:rgba(104,29,50,.32); }
+  .weekend-hero h1 { margin:0; color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-size:clamp(4.2rem,10vw,8rem); font-weight:400; line-height:.92; }
+  .weekend-hero__intro { max-width:720px; margin:32px auto 0; color:var(--ink); font-size:clamp(1.05rem,1.7vw,1.25rem); line-height:1.8; }
+  .weekend-hero__note { margin:22px 0 0; color:#766b65; font-family:Georgia,'Times New Roman',serif; font-size:.98rem; font-style:italic; }
+  .day { position:relative; padding:clamp(36px,5vw,60px) clamp(20px,6vw,72px); }
+  .day--friday { background:rgba(238,223,217,.45); }
+  .day--saturday { border-block:1px solid rgba(104,29,50,.2); }
+  .day__header { max-width:760px; margin-bottom:clamp(38px,5vw,58px); }
+  .day__header h2,.more-info h2 { margin:0; color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-size:clamp(2.7rem,5.5vw,4.8rem); font-weight:400; line-height:1.05; }
+  .day__header > p:last-child { max-width:680px; margin:24px 0 0; color:var(--ink); font-size:1.05rem; line-height:1.8; }
+  .editorial-timeline { max-width:880px; margin-left:auto; }
+  .timeline-item { position:relative; display:grid; grid-template-columns:150px minmax(0,1fr); gap:clamp(28px,5vw,70px); padding:0 0 clamp(36px,5vw,54px); }
+  .timeline-item:last-child { padding-bottom:0; }
+  .timeline-item::before { content:''; position:absolute; top:8px; left:164px; width:7px; height:7px; background:var(--burgundy); border-radius:50%; transform:translateX(-50%); }
+  .timeline-item:not(:last-child)::after { content:''; position:absolute; top:15px; bottom:0; left:164px; width:1px; background:rgba(104,29,50,.25); }
+  .timeline-item__time { margin:0; color:var(--burgundy); font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; text-align:right; }
+  .timeline-item h3 { margin:-8px 0 12px; color:var(--ink); font-family:Georgia,'Times New Roman',serif; font-size:clamp(1.75rem,3vw,2.4rem); font-weight:400; line-height:1.2; }
+  .timeline-item div > p { max-width:620px; margin:0; line-height:1.75; }
+  .text-link { display:inline-block; margin-top:17px; color:var(--burgundy); font-size:.78rem; font-weight:700; letter-spacing:.12em; text-decoration:none; text-transform:uppercase; border-bottom:1px solid rgba(104,29,50,.35); }
+  .text-link:hover { border-color:var(--burgundy); }
+  .day__note { max-width:650px; margin:40px 0 0 auto; padding-top:22px; border-top:1px solid rgba(104,29,50,.2); font-family:Georgia,'Times New Roman',serif; font-size:.96rem; font-style:italic; }
+  .more-info { display:grid; grid-template-columns:minmax(220px,.7fr) minmax(300px,1fr); gap:clamp(32px,6vw,70px); align-items:start; max-width:900px; margin-inline:auto; padding:clamp(36px,5vw,54px); background:#f0e8df; }
+  .more-info h2 { font-size:clamp(2.5rem,4vw,3.8rem); }
+  .more-info > div:last-child p { margin:0; color:var(--ink); line-height:1.8; }
+  .more-info a { display:inline-flex; margin-top:28px; padding:12px 22px; color:#fff; background:var(--burgundy); border:1px solid var(--burgundy); text-decoration:none; font-size:.72rem; letter-spacing:.15em; text-transform:uppercase; transition:background .2s ease,color .2s ease; }
+  .more-info a:hover { color:var(--burgundy); background:transparent; }
+  @media (max-width:720px) {
+    .weekend-hero { padding-inline:0; }
+    .day { padding-inline:clamp(20px,6vw,36px); }
+    .timeline-item { grid-template-columns:1fr; gap:10px; padding-left:28px; }
+    .timeline-item::before { top:8px; left:2px; }
+    .timeline-item:not(:last-child)::after { top:15px; left:2px; }
+    .timeline-item__time { text-align:left; }
+    .timeline-item h3 { margin:0 0 12px; }
+    .more-info { grid-template-columns:1fr; }
+  }
+  @media (prefers-reduced-motion:reduce) { .more-info a { transition:none; } }
+</style>

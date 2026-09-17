@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const palette = [
+  { name: 'Burgundy', className: 'palette__color--burgundy' },
+  { name: 'Plommon', className: 'palette__color--plum' },
+  { name: 'Dusty rose', className: 'palette__color--rose' },
+  { name: 'Varm ivory', className: 'palette__color--ivory' },
+  { name: 'Salvia', className: 'palette__color--sage' },
+  { name: 'Mjuk rosa', className: 'palette__color--blush' },
+];
+
+---
+
+<Layout title="Tema & klädsel">
+  <div class="theme-page">
+    <section class="theme-hero" aria-labelledby="theme-title">
+      <p class="kicker">14 AUGUSTI 2027</p>
+      <h1 id="theme-title">Tema & klädsel</h1>
+      <p class="theme-hero__intro">Vi drömmer om en varm och färgstark sensommarkväll på Bosjökloster – elegant, romantisk och med mycket blommor, grönska och djupa toner.</p>
+      <p class="theme-hero__note">Här hittar ni lite inspiration inför dagen.</p>
+    </section>
+
+    <section class="dress" aria-labelledby="dress-title">
+      <header class="section-heading">
+        <p class="kicker">KLÄDSEL</p>
+        <h2 id="dress-title">Uppklätt, somrigt & festligt</h2>
+        <p>Vi ser fram emot en riktigt festlig dag tillsammans med er! Klä er i något ni känner er extra fina i och gärna sparar till de där lite speciella tillfällena.</p>
+      </header>
+      <div class="dress-pair">
+        <article>
+          <span class="dress-pair__number" aria-hidden="true">01</span>
+          <h3>För kostymen</h3>
+          <p>Brudföljet kommer att bära smoking. Har du en smoking som står och dammar i garderoben får du mer än gärna damma av den och göra den redo för ännu en fest!</p>
+          <p class="quiet-note">Har du ingen smoking? Ingen fara – favoritkostymen fungerar precis lika bra. Slips eller fluga på, sen är du redo!</p>
+        </article>
+        <article>
+          <span class="dress-pair__number" aria-hidden="true">02</span>
+          <h3>För klänningen</h3>
+          <p>Plocka fram en klänning eller annan festlig favorit som du känner dig riktigt fin i! Långt, midi, enfärgat eller blommigt – här finns inga rätt eller fel.</p>
+          <p class="quiet-note">Ta helt enkelt på dig något som känns som bröllop och fest.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="colors" aria-labelledby="colors-title">
+      <header class="section-heading">
+        <p class="kicker">FÄRGER & KÄNSLA</p>
+        <h2 id="colors-title">En sensommar i färg</h2>
+        <p>Bröllopets färger hämtar inspiration från sensommarens blommor, Bosjöklosters grönska och djupa vinröda toner.</p>
+      </header>
+      <div class="palette" aria-label="Bröllopets färgpalett">
+        {palette.map((color, index) => (
+          <div class:list={['palette__row', { 'palette__row--offset': index % 2 !== 0 }]}>
+            <div class:list={['palette__swatch', color.className]} aria-hidden="true"></div>
+            <span>{color.name}</span>
+          </div>
+        ))}
+      </div>
+      <div class="palette-note">
+        <h3>Färger att inspireras av</h3>
+        <p>Ni behöver såklart inte matcha vår färgpalett från topp till tå. Se den som lite inspiration till känslan för dagen – och välj framför allt något ni själva känner er fina i.</p>
+      </div>
+    </section>
+
+  </div>
+</Layout>
+
+<style>
+  .theme-page { --ink:#292522; --plum:#432634; --sage:#66705a; --blush:#eedfd9; color:var(--ink); }
+  .theme-page section { margin-bottom:clamp(42px,5vw,60px); }
+  .kicker { margin:0 0 20px; color:var(--burgundy); font-size:.72rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; }
+  .theme-hero { max-width:930px; margin-inline:auto; padding:clamp(56px,8vw,90px) 20px clamp(42px,5vw,58px); text-align:center; }
+  .theme-hero h1 { margin:0; color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-size:clamp(3.7rem,9vw,7.5rem); font-weight:400; line-height:.95; }
+  .theme-hero__intro { max-width:720px; margin:28px auto 0; color:var(--ink); font-size:clamp(1.05rem,1.7vw,1.25rem); line-height:1.75; }
+  .theme-hero__note,.quiet-note { font-family:Georgia,'Times New Roman',serif; font-style:italic; }
+  .theme-hero__note { margin:22px 0 0; }
+  .section-heading { max-width:760px; margin-bottom:clamp(32px,4vw,46px); }
+  .section-heading h2 { margin:0; color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-size:clamp(2.8rem,5.7vw,4.9rem); font-weight:400; line-height:1.04; }
+  .section-heading > p:last-child { max-width:680px; margin:24px 0 0; color:var(--ink); font-size:1.05rem; line-height:1.8; }
+  .dress { margin-bottom:clamp(24px,3vw,34px) !important; padding:clamp(36px,5vw,56px); background:rgba(238,223,217,.38); }
+  .dress-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(45px,8vw,100px); }
+  .dress-pair article { position:relative; padding-top:26px; border-top:1px solid rgba(104,29,50,.3); }
+  .dress-pair__number { position:absolute; top:-14px; right:0; color:rgba(104,29,50,.16); font-family:Georgia,'Times New Roman',serif; font-size:4rem; line-height:1; }
+  .dress-pair h3,.palette-note h3 { position:relative; margin:0 0 18px; color:var(--ink); font-family:Georgia,'Times New Roman',serif; font-size:clamp(1.8rem,3vw,2.5rem); font-weight:400; }
+  .dress-pair article > p { max-width:480px; margin:0; line-height:1.8; }
+  .dress-pair .quiet-note { margin-top:18px; color:var(--burgundy); }
+  .colors { width:100%; max-width:960px; margin-inline:auto; }
+  .palette { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px 18px; width:100%; padding:clamp(28px,4vw,42px); background:#fff; border:1px solid rgba(104,29,50,.09); border-radius:24px; }
+  .palette__row,.palette__row:nth-child(4),.palette__row:nth-child(5),.palette__row:nth-child(6) { grid-column:auto; display:flex; min-width:0; flex-direction:column; align-items:center; }
+  .palette__swatch { width:min(100%,240px); height:150px; border-radius:50% 50% 45% 55% / 42% 58% 42% 58%; }
+  .palette__row--offset .palette__swatch { border-radius:56% 44% 52% 48% / 48% 38% 62% 52%; }
+  .palette__row > span { margin-top:14px; color:var(--ink); font-size:.68rem; font-weight:700; letter-spacing:.16em; text-align:center; text-transform:uppercase; }
+  .palette__color--burgundy { background:var(--burgundy); }
+  .palette__color--plum { background:var(--plum); }
+  .palette__color--rose { background:var(--accent); }
+  .palette__color--ivory { background:#f8f4ed; box-shadow:inset 0 0 0 1px rgba(104,29,50,.13); }
+  .palette__color--sage { background:var(--sage); }
+  .palette__color--blush { background:var(--blush); }
+  .palette-note { max-width:680px; margin-top:clamp(30px,4vw,42px); padding-top:24px; border-top:1px solid rgba(104,29,50,.22); }
+  .palette-note h3 { color:var(--burgundy); font-size:clamp(1.65rem,3vw,2.2rem); }
+  .palette-note p { margin:12px 0 0; line-height:1.8; }
+  @media (max-width:760px) { .palette { grid-template-columns:repeat(2,minmax(0,1fr)); gap:30px 18px; } .palette__swatch { width:min(100%,220px); height:140px; } }
+  @media (max-width:620px) { .theme-hero { padding-inline:0; } .dress,.colors { padding-inline:24px; } .dress-pair { grid-template-columns:1fr; } .palette__swatch { height:clamp(112px,34vw,140px); } }
+  @media (max-width:390px) { .palette { grid-template-columns:1fr; } .palette__swatch { width:min(100%,240px); height:140px; } }
+</style>

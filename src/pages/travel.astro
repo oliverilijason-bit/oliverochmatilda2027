@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Ta sig dit">
+  <section class="page-hero">
+    <div>
+      <p class="eyebrow">Ta sig dit</p>
+      <h1>Resa till Bosjökloster</h1>
+      <p class="lead">
+        All viktig information om transport, parkering och boende nära platsen.
+      </p>
+    </div>
+  </section>
+
+  <section class="travel-grid">
+    <article class="travel-card">
+      <h2>Adress</h2>
+      <p>Bosjökloster<br />Bosjöklostervägen 1<br />241 74 Höör</p>
+    </article>
+
+    <article class="travel-card">
+      <h2>Parkering</h2>
+      <p>Parkering finns på plats. Följ skyltningen när du kommer fram och räkna med att gå en kort promenad till entrén.</p>
+    </article>
+
+    <article class="travel-card">
+      <h2>Resa</h2>
+      <p>Ta tåget till Höör och fortsätt med buss eller taxi. Resor från Malmö och Lund tar cirka 30-45 minuter.</p>
+    </article>
+
+    <article class="travel-card">
+      <h2>Boende</h2>
+      <p>Vi rekommenderar hotell i Höör eller boende i Lund/Malmö om du vill stanna över natten.</p>
+    </article>
+  </section>
+</Layout>
+
+<style>
+  .travel-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin-top: 40px;
+  }
+
+  .travel-card {
+    padding: 30px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(155, 119, 102, 0.18);
+    box-shadow: 0 22px 60px rgba(69, 45, 30, 0.08);
+  }
+
+  .travel-card h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.4rem;
+    color: #2f3438;
+  }
+
+  .travel-card p {
+    margin: 0;
+    color: #5c5f63;
+    line-height: 1.75;
+  }
+</style>

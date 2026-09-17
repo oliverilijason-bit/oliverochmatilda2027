@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+type Experience = {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  image: string;
+  note?: string;
+};
+
+const experiences: Experience[] = [
+  {
+    id: 'surflektion',
+    category: 'AUSTRALIEN',
+    title: 'Försök få upp oss på en surfbräda',
+    description: 'En surflektion längs Australiens kust känns nästan obligatorisk. Förhoppningen är att åtminstone någon av oss lyckas stå upp längre än några sekunder.',
+    image: '/images/onskelista/wishlist-surf.svg',
+  },
+  {
+    id: 'barriarrevet',
+    category: 'UNDER YTAN',
+    title: 'Dyk i Stora barriärrevet',
+    description: 'Ett av de stora stoppen på önskelistan – att få komma ner under ytan och uppleva Stora barriärrevet tillsammans.',
+    image: '/images/onskelista/wishlist-reef.svg',
+  },
+  {
+    id: 'hotellnatt',
+    category: 'LITE EXTRA GULDKANT',
+    title: 'En riktigt fin hotellnatt',
+    description: 'Någonstans längs vägen vill vi unna oss en natt på ett sådant ställe som vi kanske inte riktigt hade bokat åt oss själva.',
+    image: '/images/onskelista/wishlist-hotel.svg',
+  },
+  {
+    id: 'hobbiton',
+    category: 'NYA ZEELAND',
+    title: 'En dag i Hobbiton',
+    description: 'Vi vill självklart göra ett stopp i Hobbiton och promenera runt bland kullarna, hobbithålen och allt annat som hör Fylke till.',
+    image: '/images/onskelista/wishlist-hobbiton.svg',
+  },
+  {
+    id: 'roadtrip',
+    category: 'PÅ VÄGEN',
+    title: 'Några mil på vår roadtrip',
+    description: 'En stor del av resan kommer förhoppningsvis bestå av att köra mellan små städer, stränder, nationalparker och platser vi ännu inte ens känner till.',
+    image: '/images/onskelista/wishlist-roadtrip.svg',
+  },
+  {
+    id: 'middag',
+    category: 'EN KVÄLL ATT MINNAS',
+    title: 'En riktigt bra middag',
+    description: 'En lång middag med god mat och något gott i glaset känns som ett ganska perfekt sätt att avsluta en dag på andra sidan jorden.',
+    image: '/images/onskelista/wishlist-dinner.svg',
+  },
+];
+
+const paymentOptions = [
+  { label: 'SWISH', value: 'Nummer kommer senare' },
+  { label: 'BANKÖVERFÖRING', value: 'Uppgifter kommer senare' },
+];
+---
+
+<Layout title="Önskelista">
+  <div class="wishlist-page">
+    <section class="wishlist-hero" aria-labelledby="wishlist-title">
+      <p class="kicker">ÖNSKELISTA</p>
+      <h1 id="wishlist-title">Minnen framför saker</h1>
+      <p class="wishlist-hero__lead">Det enda vi egentligen önskar oss är att få fira dagen tillsammans med er.</p>
+      <p class="wishlist-hero__text">Vi förväntar oss därför absolut ingen present. Men för er som ändå gärna vill ge något har vi en liten önskan – hjälp oss skapa några extra fina minnen på vår bröllopsresa till Australien och Nya Zeeland.</p>
+    </section>
+
+    <section class="journey" aria-labelledby="journey-title">
+      <div class="journey__copy">
+        <p class="kicker">AUSTRALIEN & NYA ZEELAND</p>
+        <h2 id="journey-title">Vårt nästa stora äventyr</h2>
+        <p>Efter bröllopet hoppas vi ge oss iväg på en resa genom Australien och Nya Zeeland – med roadtrips, hav, god mat och förhoppningsvis några riktigt minnesvärda äventyr längs vägen.</p>
+      </div>
+      <p class="journey__route"><span>Australien</span><span aria-hidden="true">→</span><span>Nya Zeeland</span></p>
+    </section>
+
+    <section class="experiences" aria-labelledby="experiences-title">
+      <header class="section-heading">
+        <p class="kicker">UPPLEVELSER</p>
+        <h2 id="experiences-title">Hjälp oss på vägen</h2>
+        <p>För den som tycker det är roligare att bidra till något särskilt har vi samlat några exempel på upplevelser vi gärna skulle vilja göra under resan.</p>
+      </header>
+      <div class="experience-grid">
+        {experiences.map((experience) => (
+          <article class="experience-card" id={experience.id}>
+            <img src={experience.image} alt="" loading="lazy" />
+            <div class="experience-card__copy">
+              <p class="card-label">{experience.category}</p>
+              <h3>{experience.title}</h3>
+              <p>{experience.description}</p>
+              {experience.note && <p class="experience-card__note">{experience.note}</p>}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="open-contribution" aria-labelledby="open-title">
+      <p class="kicker">ELLER...</p>
+      <div>
+        <h2 id="open-title">Där resan tar oss</h2>
+        <p>Vill du hellre bidra till resan i stort? Då får bidraget helt enkelt följa med dit det behövs mest – flyg, boende, hyrbil, middag eller något äventyr vi ännu inte ens vet att vi ska på.</p>
+      </div>
+    </section>
+
+    <section class="contribution" aria-labelledby="contribution-title">
+      <header class="section-heading">
+        <p class="kicker">OM DU VILL BIDRA</p>
+        <h2 id="contribution-title">Så gör du</h2>
+        <p>Vi kommer att lägga till Swish och information för överföring här när det närmar sig.</p>
+      </header>
+      <dl class="payment-options">
+        {paymentOptions.map((option) => (
+          <div><dt>{option.label}</dt><dd>{option.value}</dd></div>
+        ))}
+      </dl>
+      <p class="contribution__note">Vill du bidra till någon särskild upplevelse får du gärna skriva exempelvis ”Hobbiton”, ”Surflektion” eller ”Bröllopsresa” som meddelande.</p>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .wishlist-page { --ink:#292522; --sage:#66705a; --powder:#eedfd9; color:var(--ink); }
+  .wishlist-page section { margin-bottom:clamp(54px,7vw,86px); }
+  .kicker,.card-label { margin:0 0 18px; color:var(--burgundy); font-size:.7rem; font-weight:700; letter-spacing:.26em; text-transform:uppercase; }
+  .wishlist-hero { max-width:900px; margin-inline:auto; padding:clamp(62px,9vw,105px) 20px clamp(46px,6vw,68px); text-align:center; }
+  .wishlist-hero h1,.section-heading h2,.journey h2,.open-contribution h2 { margin:0; color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-size:clamp(2.8rem,5.7vw,4.9rem); font-weight:400; line-height:1.04; }
+  .wishlist-hero h1 { font-size:clamp(3.6rem,8vw,6.8rem); }
+  .wishlist-hero__lead { margin:28px auto 0; color:var(--ink); font-family:Georgia,'Times New Roman',serif; font-size:clamp(1.3rem,2.4vw,1.75rem); line-height:1.55; }
+  .wishlist-hero__text { max-width:720px; margin:20px auto 0; color:var(--ink); line-height:1.8; }
+  .journey { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr); gap:clamp(40px,7vw,84px); align-items:end; padding:clamp(38px,5vw,58px); background:rgba(238,223,217,.4); }
+  .journey h2 { font-size:clamp(2.6rem,5vw,4.3rem); }
+  .journey__copy > p:last-child { max-width:650px; margin:22px 0 0; color:var(--ink); line-height:1.8; }
+  .journey__route { display:flex; align-items:center; justify-content:center; gap:16px; margin:0; padding:22px 0; color:var(--burgundy); border-block:1px solid rgba(104,29,50,.25); font-family:Georgia,'Times New Roman',serif; font-size:1rem; white-space:nowrap; }
+  .section-heading { max-width:750px; margin-bottom:clamp(34px,5vw,50px); }
+  .section-heading > p:last-child { max-width:680px; margin:22px 0 0; color:var(--ink); font-size:1.04rem; line-height:1.8; }
+  .experience-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(32px,4vw,48px) 24px; }
+  .experience-card { min-width:0; }
+  .experience-card img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; }
+  .experience-card:nth-child(2),.experience-card:nth-child(5) { padding-top:28px; }
+  .experience-card__copy { padding:22px 7px 0; }
+  .card-label { margin-bottom:9px; font-size:.66rem; }
+  .experience-card h3 { margin:0; color:var(--ink); font-family:Georgia,'Times New Roman',serif; font-size:clamp(1.55rem,2.4vw,2.05rem); font-weight:400; line-height:1.16; }
+  .experience-card__copy > p:last-child { margin:13px 0 0; line-height:1.7; }
+  .experience-card__note { color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-size:.92rem; font-style:italic; }
+  .open-contribution { display:grid; grid-template-columns:minmax(130px,.32fr) minmax(0,1fr); gap:clamp(28px,6vw,75px); max-width:920px; margin-inline:auto; padding:clamp(38px,5vw,58px); background:var(--surface-strong); border-block:1px solid rgba(104,29,50,.18); }
+  .open-contribution h2 { font-size:clamp(2.6rem,5vw,4.2rem); }
+  .open-contribution div p { max-width:630px; margin:20px 0 0; color:var(--ink); line-height:1.8; }
+  .contribution { max-width:900px; margin-inline:auto; }
+  .payment-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; margin:0; }
+  .payment-options div { padding:25px 0; border-block:1px solid rgba(104,29,50,.22); }
+  .payment-options dt { color:var(--burgundy); font-size:.7rem; font-weight:700; letter-spacing:.2em; }
+  .payment-options dd { margin:9px 0 0; color:var(--ink); font-family:Georgia,'Times New Roman',serif; font-size:1.25rem; }
+  .contribution__note { max-width:680px; margin:27px 0 0; color:#766b65; font-family:Georgia,'Times New Roman',serif; font-size:.94rem; font-style:italic; line-height:1.7; }
+  @media (max-width:820px) { .journey { grid-template-columns:1fr; } .journey__route { justify-content:flex-start; } .experience-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .experience-card:nth-child(2),.experience-card:nth-child(5) { padding-top:0; } }
+  @media (max-width:620px) { .wishlist-hero { padding-inline:0; } .journey,.open-contribution { grid-template-columns:1fr; padding-inline:24px; } .experience-grid,.payment-options { grid-template-columns:1fr; } .journey__route { white-space:normal; } .experience-grid { gap:42px; } }
+</style>

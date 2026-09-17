@@ -1,0 +1,82 @@
+---
+const { title = 'Oliver & Matilda' } = Astro.props;
+const currentPath = Astro.url.pathname;
+const navigation = [
+  { label: 'START', href: '/' },
+  { label: 'HELGEN', href: '/helgen' },
+  { label: 'TEMA & KLÄDSEL', href: '/tema-kladsel' },
+  { label: 'UPPTÄCK OMRÅDET', href: '/upptack-omradet' },
+  { label: 'PRAKTISK INFO', href: '/travel' },
+  { label: 'ÖNSKELISTA', href: '/onskelista' },
+  { label: 'FAQ', href: '/info' },
+  { label: 'OSA', href: '/osa' },
+];
+---
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{title} | Oliver & Matilda</title>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="/">Oliver & Matilda</a>
+        <nav aria-label="Huvudmeny">
+          {navigation.map((item) => (
+            <a href={item.href} class:list={{ active: currentPath === item.href }} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a>
+          ))}
+        </nav>
+      </header>
+      <main><slot /></main>
+      <footer><p>14 augusti 2027 · Bosjökloster · Oliver & Matilda</p></footer>
+    </div>
+  </body>
+</html>
+<style>
+  :root { color-scheme: light; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #2f3438; background: #fbf5ee; --surface: #fff; --surface-strong: #f8f2ec; --accent: #d69485; --burgundy: #681d32; --muted: #6d7277; --border: rgba(155,119,102,.2); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body { background: linear-gradient(180deg, #fff8f2 0%, #f6ece5 50%, #f5f2ed 100%); color: #2f3438; line-height: 1.6; }
+  .page-shell { min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; }
+  .site-header { position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding: 18px clamp(20px,3vw,40px); background: rgba(255,255,255,.78); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(155,119,102,.16); }
+  .brand { color: #2f3438; text-decoration: none; font-weight: 700; letter-spacing: .15em; }
+  nav { display: flex; flex-wrap: wrap; gap: 18px; }
+  nav a { color: #646d71; text-decoration: none; font-size: .78rem; text-transform: uppercase; letter-spacing: .15em; transition: color .2s ease, transform .2s ease; }
+  nav a:hover { color: #2f3438; transform: translateY(-1px); }
+  nav a.active { color: var(--burgundy); }
+  nav a.active::after { content: ''; display: block; width: 100%; height: 1px; margin-top: 4px; background: var(--burgundy); }
+  main { padding: 40px clamp(20px,4vw,60px); max-width: 1120px; margin: 0 auto; width: 100%; }
+  footer { padding: 24px clamp(20px,3vw,40px); text-align: center; color: var(--muted); font-size: .95rem; }
+  section { margin-bottom: 52px; }
+  .page-hero { margin: 0; padding: 80px clamp(24px,4vw,60px); max-width: none; text-align: center; }
+  .page-hero > div { max-width: 860px; margin: 0 auto; }
+  .home-hero { min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; border-radius: 0; background: #1a1a1a url('/images/hero.jpg') center/cover no-repeat; position: relative; box-shadow: inset 0 0 0 1000px rgba(18,18,18,.24); }
+  .home-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg,rgba(10,10,10,.35),rgba(10,10,10,.55)); pointer-events: none; }
+  .home-hero > div { position: relative; z-index: 1; max-width: 860px; width: min(100%,860px); text-align: center; background: rgba(12,12,12,.36); padding: 52px 36px; border-radius: 36px; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 32px 80px rgba(0,0,0,.28); color: #fff; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .4em; font-size: .82rem; color: rgba(255,255,255,.75); margin-bottom: 18px; }
+  h1 { margin: 0; font-size: clamp(3.5rem,6vw,6rem); line-height: 1.02; color: #fff; }
+  h2 { font-size: clamp(1.8rem,2.2vw,2.4rem); margin-bottom: 18px; }
+  p, li { color: var(--muted); }
+  .lead { max-width: 680px; margin-top: 18px; font-size: 1.05rem; }
+  .overview-cards { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
+  .card { border: 1px solid var(--border); background: rgba(255,255,255,.04); padding: 30px; border-radius: 26px; min-height: 240px; display: flex; flex-direction: column; justify-content: space-between; }
+  .card h3 { margin: 0 0 16px; } .card p { flex: 1; }
+  .card a, .primary-btn, .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 999px; text-decoration: none; border: 1px solid transparent; transition: transform .2s ease, background .2s ease, color .2s ease; }
+  .card a, .btn { margin-top: 24px; color: #f5f2ee; border-color: rgba(255,255,255,.12); background: rgba(255,255,255,.06); }
+  .card a:hover, .primary-btn:hover, .btn:hover { transform: translateY(-1px); background: rgba(200,182,166,.16); color: #fff; }
+  .primary-btn { margin-top: 24px; color: #111; background: var(--accent); }
+  .timeline { display: grid; gap: 18px; }
+  .hero-actions { display: inline-flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; justify-content: center; }
+  .timeline > div { display: grid; grid-template-columns: 92px 1fr; gap: 16px; padding: 22px; border: 1px solid var(--border); background: rgba(255,255,255,.04); border-radius: 20px; }
+  .timeline span { color: var(--accent); font-weight: 700; font-size: 1rem; min-width: 92px; }
+  ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  ul li::before { content: '•'; color: var(--accent); display: inline-block; width: 1em; margin-left: -1em; }
+  .note { margin-top: 16px; font-size: .95rem; }
+  @media (max-width: 960px) { .site-header { align-items: flex-start; } nav { width: 100%; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 7px; scrollbar-width: thin; } nav a { flex: 0 0 auto; } }
+  @media (max-width: 720px) { .site-header { flex-direction: column; gap: 12px; padding-bottom: 12px; } nav { width: calc(100vw - 40px); gap: 20px; } nav a { font-size: .72rem; } .timeline > div { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { nav a, .card a, .primary-btn, .btn { transition: none; } }
+</style>
