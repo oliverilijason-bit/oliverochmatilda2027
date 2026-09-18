@@ -2,10 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 
 const categories = [
-  { label: 'SPA', title: 'Ta det lugnt på Höörs Gästis', text: 'För er som vill börja bröllopsdagen riktigt lugnt finns möjligheten att boka in några timmar på spa på Höörs Gästis – perfekt för den som hellre laddar batterierna än ger sig ut på äventyr.', image: '/images/upptack/area-spa.svg' },
-  { label: 'EN LITEN UTFLYKT', title: 'Upptäck Lund', text: 'Ta en tur till Lund och upptäck staden där vi båda tillbringade våra studieår. Strosa genom centrum, ta en kaffe och kika förbi några av platserna som varit en stor del av våra liv.', note: 'Ca 35–40 minuter från Höör.', image: '/images/upptack/area-lund.svg' },
-  { label: 'BOSJÖKLOSTER', title: 'Promenera bland getter och lamor', text: 'Ta en lugn promenad i Bosjöklosters vackra omgivningar och passa på att hälsa på djuren i parken. Ett enkelt och mysigt sätt att få lite frisk luft innan det är dags att göra sig redo.', image: '/images/upptack/area-bosjokloster.svg' },
-  { label: 'OM SOLEN SKINER', title: 'Ta ett dopp i Ringsjön', text: 'Om augustivädret visar sig från sin bästa sida finns det få bättre sätt att börja dagen än med ett dopp i Ringsjön.', note: 'Glöm bara inte att lämna tid för hår, kostym och bubbel efteråt.', image: '/images/upptack/area-ringsjon.svg' },
+  { label: 'SPA', title: 'Ta det lugnt på Höörs Gästis', text: 'För er som vill börja bröllopsdagen riktigt lugnt finns möjligheten att boka in några timmar på spa på Höörs Gästis – perfekt för den som hellre laddar batterierna än ger sig ut på äventyr.', image: '/images/upptack-omradet/spa-hoors-gastis.jpg', alt: 'Pool och sittplatser under en kristallkrona på Höörs Gästis spa', position: '60% center' },
+  { label: 'EN LITEN UTFLYKT', title: 'Upptäck Lund', text: 'Ta en tur till Lund och upptäck staden där vi båda tillbringade våra studieår. Strosa genom centrum, ta en kaffe och kika förbi några av platserna som varit en stor del av våra liv.', note: 'Ca 35–40 minuter från Höör.', image: '/images/upptack-omradet/lund-domkyrka.jpg', alt: 'Lunds domkyrka med sina två torn och torget framför', position: 'center top' },
+  { label: 'BOSJÖKLOSTER', title: 'Promenera bland getter och lamor', text: 'Ta en lugn promenad i Bosjöklosters vackra omgivningar och passa på att hälsa på djuren i parken. Ett enkelt och mysigt sätt att få lite frisk luft innan det är dags att göra sig redo.', image: '/images/upptack-omradet/parken-bosjo.jpg', alt: 'Blommande tulpaner och grusgångar i parken framför Bosjökloster', position: 'center center' },
+  { label: 'OM SOLEN SKINER', title: 'Ta ett dopp i Ringsjön', text: 'Om augustivädret visar sig från sin bästa sida finns det få bättre sätt att börja dagen än med ett dopp i Ringsjön.', note: 'Glöm bara inte att lämna tid för hår, kostym och bubbel efteråt.', image: '/images/upptack-omradet/ringsjon.jpg', alt: 'Ringsjöns strand med Bosjökloster och träden speglade i vattnet', position: '60% center' },
   { label: 'LUNCH', title: 'Lunch på Björk Ringsjön', text: 'Ät lunch på Björk Ringsjön, ett av våra favoritställen i området. Här serveras framför allt fisk och skaldjur med utsikt över Ringsjön – perfekt för en lång och lugn lunch innan bröllopet.', note: 'En av våra egna favoriter.', image: '/images/upptack/area-bjork.svg', featured: true },
 ];
 
@@ -29,7 +29,7 @@ const categories = [
       <div class="category-grid">
         {categories.map((category) => (
           <article class="category-card">
-            <img src={category.image} alt="" loading="lazy" />
+            <img src={category.image} alt={category.alt ?? ''} style={{ objectPosition: category.position ?? 'center' }} loading="lazy" />
             <div class="category-card__copy">
               <p class="category-label">{category.label}</p>
               <h3>{category.title}</h3>
