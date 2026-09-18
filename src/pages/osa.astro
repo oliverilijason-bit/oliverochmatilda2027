@@ -1,45 +1,72 @@
----
+﻿---
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="OSA - Svara gärna">
-  <section class="page-hero">
-    <div>
-      <p class="eyebrow">OSA</p>
-      <h1>Hör av dig</h1>
-      <p class="lead">
-        Vi hoppas att ni vill fira med oss. Svara gärna så snart ni kan, så att vi kan planera mat, dryck och sittplatser.
+  <div class="rsvp-page">
+    <section class="rsvp-hero" aria-labelledby="rsvp-title">
+      <p class="kicker">14 AUGUSTI 2027</p>
+      <h1 id="rsvp-title">Kommer ni?</h1>
+      <p class="rsvp-hero__intro">Vi hoppas såklart att ni vill fira tillsammans med oss. Svara gärna så snart ni vet, så hjälper ni oss att planera mat, dryck, boende och allt det roliga runt omkring.</p>
+      <p class="quiet-note">Vi längtar efter att få fira med er.</p>
+    </section>
+
+    <section class="rsvp-panel" aria-labelledby="form-title">
+      <header class="section-heading">
+        <div>
+          <p class="kicker">OSA</p>
+          <h2 id="form-title">Vi vill gärna veta</h2>
+          <p class="section-intro">Fyll i formuläret nedan för att berätta om ni kommer, hur många ni blir och om ni önskar bo tillsammans med oss på Gästis.</p>
+        </div>
+        <span class="section-number" aria-hidden="true">01</span>
+      </header>
+
+      <div class="tally-embed-wrapper">
+        <iframe src="https://tally.so/embed/eqzqoE?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0" title="OSA-formulär"></iframe>
+      </div>
+      <script is:inline async src="https://tally.so/widgets/embed.js"></script>
+
+      <p class="form-alternative">
+        <a href="https://tally.so/embed/eqzqoE?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" target="_blank" rel="noreferrer noopener">Öppna OSA i en ny flik</a>
       </p>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <h2>OSA här</h2>
-    <p>
-      Fyll i svar direkt på sidan nedan. Formuläret är inbäddat och anpassat för mobil och desktop.
-    </p>
-
-    <div class="tally-embed-wrapper">
-      <iframe src="https://tally.so/embed/eqzqoE?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0" title="OSA-formulär"></iframe>
-    </div>
-
-    <p class="note">
-      Om formuläret inte syns, klicka här för att öppna det i en ny flik.
-    </p>
-    <a class="primary-btn" href="https://tally.so/embed/eqzqoE?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" target="_blank" rel="noreferrer noopener">
-      Öppna OSA i ny flik
-    </a>
-  </section>
-
-  <section>
-    <h2>Vad vi behöver veta</h2>
-    <ul>
-      <li>Om ni kommer eller inte</li>
-      <li>Antal personer</li>
-      <li>Namn på personer</li>
-      <li>Eventuella allergier eller specialkost</li>
-      <li>Om ni planerar komma på fredagen eller lördagen</li>
-      <li>Önskemål om boende</li>
-    </ul>
-  </section>
+    <section class="rsvp-closing" aria-labelledby="questions-title">
+      <p class="kicker">FRÅGOR?</p>
+      <h2 id="questions-title">Undrar ni över något?</h2>
+      <p>Om det är något som känns oklart inför helgen är det bara att höra av sig till någon av oss.</p>
+      <p class="quiet-note">Vi ses förhoppningsvis i augusti ♡</p>
+    </section>
+  </div>
 </Layout>
+
+<style>
+  .rsvp-page { --ink:#292522; --blush:#eedfd9; color:var(--ink); }
+  .rsvp-page section { margin-bottom:clamp(32px,4vw,48px); }
+  .rsvp-page p { margin:0; color:var(--ink); line-height:1.8; }
+  .rsvp-page .kicker { margin:0 0 20px; color:var(--burgundy); font-size:.72rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; }
+  .rsvp-hero { max-width:930px; margin-inline:auto; padding:clamp(56px,8vw,90px) 20px clamp(32px,4vw,48px); text-align:center; }
+  .rsvp-hero h1 { margin:0; color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-size:clamp(3.7rem,9vw,7.5rem); font-weight:400; line-height:.95; }
+  .rsvp-hero .rsvp-hero__intro { max-width:720px; margin:28px auto 0; font-size:clamp(1.05rem,1.7vw,1.25rem); line-height:1.75; }
+  .rsvp-page .quiet-note { margin-top:22px; color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-style:italic; }
+  .rsvp-panel { padding:clamp(28px,5vw,56px); background:var(--blush); }
+  .section-heading { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px; align-items:start; margin-bottom:clamp(28px,4vw,42px); }
+  .section-heading h2 { margin:0; color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-size:clamp(2.8rem,5.7vw,4.9rem); font-weight:400; line-height:1.04; }
+  .section-heading .section-intro { max-width:680px; margin:24px 0 0; font-size:1.05rem; }
+  .section-number { color:rgba(104,29,50,.16); font-family:Georgia,'Times New Roman',serif; font-size:clamp(4rem,8vw,7rem); line-height:1; }
+  .tally-embed-wrapper { width:100%; max-width:760px; margin-inline:auto; padding-top:24px; border-top:1px solid rgba(104,29,50,.25); }
+  .tally-embed-wrapper iframe { display:block; width:100%; max-width:100%; border:0; }
+  .rsvp-panel .form-alternative { max-width:760px; margin:22px auto 0; font-size:.9rem; text-align:center; }
+  .form-alternative a { color:var(--burgundy); text-decoration-thickness:1px; text-underline-offset:4px; }
+  .form-alternative a:hover { text-decoration-thickness:2px; }
+  .form-alternative a:focus-visible { outline:2px solid var(--burgundy); outline-offset:4px; }
+  .rsvp-page .rsvp-closing { max-width:720px; margin:0 auto; padding-top:clamp(28px,4vw,40px); border-top:1px solid rgba(104,29,50,.25); text-align:center; }
+  .rsvp-closing h2 { margin:0 0 20px; color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-size:clamp(2rem,4vw,3rem); font-weight:400; line-height:1.1; }
+  @media (max-width:620px) {
+    .rsvp-hero { padding-inline:0; }
+    .rsvp-panel { padding:28px 16px; }
+    .section-heading { grid-template-columns:1fr; gap:14px; }
+    .section-number { grid-row:1; font-size:4rem; }
+    .section-heading h2 { font-size:clamp(2.3rem,8.5vw,3.3rem); }
+  }
+</style>
