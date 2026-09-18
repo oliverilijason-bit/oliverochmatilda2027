@@ -1,67 +1,141 @@
----
+﻿---
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Ta sig dit">
-  <section class="page-hero">
-    <div>
-      <p class="eyebrow">Ta sig dit</p>
-      <h1>Resa till Bosjökloster</h1>
-      <p class="lead">
-        All viktig information om transport, parkering och boende nära platsen.
-      </p>
-    </div>
-  </section>
+<Layout title="Praktisk info">
+  <div class="practical-page">
+    <section class="practical-hero" aria-labelledby="practical-title">
+      <p class="kicker">14 AUGUSTI 2027</p>
+      <h1 id="practical-title">Praktisk info</h1>
+      <p class="practical-hero__intro">Allt det praktiska inför helgen – hur ni tar er till Bosjökloster, var ni kan bo och några saker som är bra att ha koll på innan det är dags.</p>
+      <p class="practical-hero__note">Så att ni kan lägga resten av energin på att fira med oss.</p>
+    </section>
 
-  <section class="travel-grid">
-    <article class="travel-card">
-      <h2>Adress</h2>
-      <p>Bosjökloster<br />Bosjöklostervägen 1<br />241 74 Höör</p>
-    </article>
+    <section class="chapter directions" aria-labelledby="directions-title">
+      <header class="chapter-heading">
+        <div><p class="kicker">HITTA HIT</p><h2 id="directions-title">Vägen till Bosjökloster</h2></div>
+        <span class="chapter-number" aria-hidden="true">01</span>
+      </header>
+      <div class="directions-pair">
+        <div class="ruled-item">
+          <h3>Bosjökloster</h3>
+          <address>Bosjökloster<br />Bosjöklostervägen 1<br />243 95 Höör</address>
+          <p class="kicker parking-label">PARKERING</p>
+          <p>Det finns parkering på plats vid Bosjökloster. Följ skyltningen när ni kommer fram och räkna med en kort promenad från parkeringen till slottet.</p>
+        </div>
+        <div class="ruled-item">
+          <h3>Tåg, taxi & samåkning</h3>
+          <p>Höör är närmaste tågstation. Därifrån tar ni er vidare till Bosjökloster med taxi eller annan ordnad transport.</p>
+          <p>Vi rekommenderar att boka taxi i förväg, särskilt på lördagskvällen. Samåk gärna – vi fyller på med mer information om eventuell gemensam transport närmare bröllopet.</p>
+        </div>
+      </div>
+    </section>
 
-    <article class="travel-card">
-      <h2>Parkering</h2>
-      <p>Parkering finns på plats. Följ skyltningen när du kommer fram och räkna med att gå en kort promenad till entrén.</p>
-    </article>
+    <section class="chapter accommodation" aria-labelledby="accommodation-title">
+      <header class="chapter-heading">
+        <div><p class="kicker">BOENDE</p><h2 id="accommodation-title">Bo tillsammans med oss</h2></div>
+        <span class="chapter-number" aria-hidden="true">02</span>
+      </header>
+      <div class="guesthouse">
+        <h3>Höörs <br />Gästgifwaregård</h3>
+        <div>
+          <p>Vi har hyrt hela Höörs Gästgifwaregård för bröllopshelgen och där finns sängplatser för de flesta av våra gäster. Platserna är dock begränsade och fördelas enligt först till kvarn.</p>
+          <p class="quiet-note">Vill ni bo på Gästis anger ni det i samband med <a href="/osa">OSA</a>, så återkommer vi med mer information.</p>
+        </div>
+      </div>
+      <div class="alternatives">
+        <p class="kicker">OM GÄSTIS BLIR FULLT</p>
+        <h3>Fler ställen att sova gott på</h3>
+        <p>Det finns flera trevliga alternativ i närheten för den som vill ordna boende på egen hand.</p>
+        <div class="editorial-trio stay-list">
+          <article class="ruled-item">
+            <h4>Stiftsgården Åkersberg</h4>
+            <p>Hotell i centrala Höör, nära stationen och ungefär 8 km från Bosjökloster. Ett smidigt alternativ för den som vill bo centralt.</p>
+          </article>
+          <article class="ruled-item">
+            <h4>Yggdrasil Igloo</h4>
+            <p>Ett mer annorlunda boende nära naturen, med glamping/igloo-känsla och närhet till Ringsjön. Passar den som vill göra lite mer av övernattningen.</p>
+          </article>
+          <article class="ruled-item">
+            <h4>Elisefarm</h4>
+            <p>Hotell på landet cirka 10 km från Bosjökloster, med golf och lantlig miljö.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <article class="travel-card">
-      <h2>Resa</h2>
-      <p>Ta tåget till Höör och fortsätt med buss eller taxi. Resor från Malmö och Lund tar cirka 30-45 minuter.</p>
-    </article>
-
-    <article class="travel-card">
-      <h2>Boende</h2>
-      <p>Vi rekommenderar hotell i Höör eller boende i Lund/Malmö om du vill stanna över natten.</p>
-    </article>
-  </section>
+    <section class="chapter day-notes" aria-labelledby="notes-title">
+      <header class="chapter-heading">
+        <div><p class="kicker">INFÖR DAGEN</p><h2 id="notes-title">Några små saker</h2></div>
+        <span class="chapter-number" aria-hidden="true">03</span>
+      </header>
+      <div class="editorial-trio">
+        <div class="ruled-item">
+          <h3 class="kicker">TIDER</h3>
+          <p class="ceremony-time">16.00</p>
+          <p>Vigseln börjar kl. 16.00 på lördagen. Kom gärna i god tid så att alla hinner hitta rätt innan ceremonin börjar.</p>
+        </div>
+        <div class="ruled-item">
+          <h3 class="kicker">KLÄDSEL & VÄDER</h3>
+          <p>Vigseln och delar av dagen kommer att vara utomhus, så håll gärna ett öga på väderprognosen. Mer om klädseln hittar ni under <a href="/tema-kladsel">Tema & klädsel</a>.</p>
+        </div>
+        <div class="ruled-item">
+          <h3 class="kicker">FRÅGOR</h3>
+          <p>Saknar ni något här eller undrar över något inför helgen? Hör av er till Oliver eller Matilda – hellre en fråga för mycket än en för lite.</p>
+        </div>
+      </div>
+    </section>
+  </div>
 </Layout>
 
 <style>
-  .travel-grid {
-    display: grid;
-    gap: 24px;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    margin-top: 40px;
+  /* Display type, labels, rules and numbering follow Tema & klädsel. */
+  .practical-page { --ink:#292522; --blush:#eedfd9; color:var(--ink); }
+  .practical-page section { margin-bottom:clamp(28px,4vw,48px); }
+  .practical-page p { margin:0; color:var(--ink); line-height:1.8; }
+  .practical-page p + p { margin-top:18px; }
+  .practical-page .kicker { margin:0 0 20px; color:var(--burgundy); font-family:inherit; font-size:.72rem; font-weight:700; letter-spacing:.3em; line-height:1.6; text-transform:uppercase; }
+  .practical-hero { max-width:930px; margin-inline:auto; padding:clamp(56px,8vw,90px) 20px clamp(32px,4vw,48px); text-align:center; }
+  .practical-hero h1 { margin:0; color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-size:clamp(3.7rem,9vw,7.5rem); font-weight:400; line-height:.95; }
+  .practical-hero .practical-hero__intro { max-width:720px; margin:28px auto 0; font-size:clamp(1.05rem,1.7vw,1.25rem); line-height:1.75; }
+  .practical-hero .practical-hero__note { margin:22px 0 0; font-family:Georgia,'Times New Roman',serif; font-style:italic; }
+  .chapter { padding:clamp(28px,5vw,56px); }
+  .directions { background:rgba(238,223,217,.38); }
+  .accommodation { background:var(--blush); }
+  .day-notes { background:var(--surface-strong); border-block:1px solid rgba(104,29,50,.18); }
+  .chapter-heading { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px; align-items:start; margin-bottom:clamp(32px,4vw,46px); }
+  .chapter-heading h2 { max-width:740px; margin:0; color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-size:clamp(2.8rem,5.7vw,4.9rem); font-weight:400; line-height:1.04; }
+  .chapter-number { color:rgba(104,29,50,.16); font-family:Georgia,'Times New Roman',serif; font-size:clamp(4rem,8vw,7rem); line-height:1; }
+  .directions-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(32px,6vw,72px); }
+  .ruled-item { padding-top:26px; border-top:1px solid rgba(104,29,50,.3); min-width:0; }
+  .practical-page h3,.practical-page h4 { margin:0 0 18px; color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-size:clamp(1.8rem,3vw,2.5rem); font-weight:400; line-height:1.15; }
+  .practical-page address { margin:0; font-style:normal; line-height:1.8; }
+  .practical-page .parking-label { margin:28px 0 12px; }
+  .guesthouse { display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:clamp(28px,5vw,56px); padding-top:26px; border-top:1px solid rgba(104,29,50,.3); }
+  .guesthouse h3 { font-size:clamp(2rem,3.6vw,3rem); }
+  .guesthouse .quiet-note { color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-size:1.1rem; font-style:italic; }
+  .alternatives { margin-top:clamp(32px,4vw,46px); padding-top:clamp(28px,4vw,40px); border-top:1px solid rgba(104,29,50,.25); }
+  .alternatives > p:not(.kicker) { max-width:650px; }
+  .editorial-trio { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(24px,3vw,40px); }
+  .stay-list { margin-top:30px; }
+  .stay-list h4 { font-size:clamp(1.6rem,2.5vw,2rem); }
+  .day-notes .ceremony-time { margin:0 0 18px; color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-size:clamp(3.5rem,6vw,5rem); line-height:1; }
+  .practical-page a { color:var(--burgundy); text-decoration-thickness:1px; text-underline-offset:4px; }
+  .practical-page a:hover { text-decoration-thickness:2px; }
+  .practical-page a:focus-visible { outline:2px solid var(--burgundy); outline-offset:4px; }
+  .practical-page .day-notes { margin-bottom:0; }
+  @media (max-width:900px) {
+    .editorial-trio { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .guesthouse { grid-template-columns:1fr; gap:12px; }
+    .guesthouse h3 br { display:none; }
   }
-
-  .travel-card {
-    padding: 30px;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.96);
-    border: 1px solid rgba(155, 119, 102, 0.18);
-    box-shadow: 0 22px 60px rgba(69, 45, 30, 0.08);
-  }
-
-  .travel-card h2 {
-    margin-top: 0;
-    margin-bottom: 18px;
-    font-size: 1.4rem;
-    color: #2f3438;
-  }
-
-  .travel-card p {
-    margin: 0;
-    color: #5c5f63;
-    line-height: 1.75;
+  @media (max-width:620px) {
+    .practical-hero { padding-inline:0; }
+    .chapter { padding:28px 24px; }
+    .chapter-heading { grid-template-columns:1fr; gap:14px; }
+    .chapter-number { grid-row:1; font-size:4rem; }
+    .chapter-heading h2 { font-size:clamp(2.3rem,8.5vw,3.3rem); overflow-wrap:anywhere; }
+    .directions-pair,.editorial-trio { grid-template-columns:1fr; gap:30px; }
+    .guesthouse h3 { overflow-wrap:anywhere; }
   }
 </style>

@@ -15,13 +15,6 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <section class="home-intro">
-    <div class="home-intro-card">
-      <span class="section-label">VÅR HISTORIA</span>
-      <h2>Vi ska gifta oss :)</h2>
-      <p>Oliver och Matilda planerar en varm och personlig bröllopsdag i Bosjökloster. Här hittar du information om dagen, platsen och hur du svarar på inbjudan.</p>
-    </div>
-  </section>
 </Layout>
 
 <style>
@@ -117,47 +110,6 @@ import Layout from '../layouts/Layout.astro';
     background: rgba(255, 255, 255, 0.18);
   }
 
-  .home-intro {
-    display: grid;
-    place-items: center;
-    padding: 60px clamp(20px, 5vw, 80px);
-  }
-
-  .home-intro-card {
-    max-width: 860px;
-    background: rgba(255, 255, 255, 0.94);
-    padding: 48px;
-    border-radius: 32px;
-    border: 1px solid rgba(155, 119, 102, 0.18);
-    box-shadow: 0 30px 80px rgba(69, 45, 30, 0.12);
-    text-align: center;
-  }
-
-  .section-label {
-    display: inline-block;
-    padding: 10px 18px;
-    border-radius: 999px;
-    background: rgba(214, 148, 133, 0.12);
-    color: #a97164;
-    font-size: 0.78rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-
-  .home-intro-card h2 {
-    margin: 0;
-    font-size: clamp(2rem, 3vw, 3rem);
-    letter-spacing: 0.04em;
-    color: #2f3438;
-  }
-
-  .home-intro-card p {
-    margin-top: 20px;
-    color: #5c5f63;
-    line-height: 1.75;
-  }
-
   @media (max-width: 720px) {
     .hero-copy {
       padding: 30px 24px;
@@ -167,8 +119,5 @@ import Layout from '../layouts/Layout.astro';
       font-size: 3.4rem;
     }
 
-    .home-intro-card {
-      padding: 30px 24px;
-    }
   }
 </style>
