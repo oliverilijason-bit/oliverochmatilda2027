@@ -100,7 +100,12 @@ const palette = [
   .palette-note { max-width:680px; margin-top:clamp(30px,4vw,42px); padding-top:24px; border-top:1px solid rgba(104,29,50,.22); }
   .palette-note h3 { color:var(--burgundy); font-size:clamp(1.65rem,3vw,2.2rem); }
   .palette-note p { margin:12px 0 0; line-height:1.8; }
+  @media (max-width:1200px) { .palette { box-sizing:border-box; } }
   @media (max-width:760px) { .palette { grid-template-columns:repeat(2,minmax(0,1fr)); gap:30px 18px; } .palette__swatch { width:min(100%,220px); height:140px; } }
   @media (max-width:620px) { .theme-hero { padding-inline:0; } .dress,.colors { padding-inline:24px; } .dress-pair { grid-template-columns:1fr; } .palette__swatch { height:clamp(112px,34vw,140px); } }
   @media (max-width:390px) { .palette { grid-template-columns:1fr; } .palette__swatch { width:min(100%,240px); height:140px; } }
+  @media (max-width:620px) {
+    .section-heading h2 { font-size:clamp(2.2rem,8.5vw,3.3rem); }
+    .dress-pair h3 { padding-right:40px; }
+  }
 </style>
