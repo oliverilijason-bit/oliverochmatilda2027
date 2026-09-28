@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Fill in the deadline once it has been decided.
+const deadline = '[DATUM]';
+// Add photos under public/images/toastmasters and enter their /images/... paths here.
+// Replace email and phone placeholders with real details to enable contact links.
+const toastmasters = [
+  { name: 'Jakob', photo: '', email: '[EMAIL Jakob]', phone: '[TELEFON Jakob]' },
+  { name: 'Mathilda', photo: '', email: '[EMAIL Mathilda]', phone: '[TELEFON Mathilda]' },
+];
+const wishes = [
+  { title: 'TID', text: 'Försök gärna hålla talet relativt kort och kärnfullt. Toastmasters hjälper till att planera kvällens schema och återkommer om ungefärlig tid.' },
+  { title: 'TEKNIK', text: 'Behöver du musik, mikrofon, projektor eller något annat till ditt inslag? Berätta det när du anmäler dig så försöker vi ordna det.' },
+  { title: 'HEMLIGHETER', text: 'Planerar du en överraskning för brudparet? Inga problem. Jakob och Mathilda håller gärna hemligheten och hjälper dig att få in den på rätt plats under kvällen.' },
+];
+---
+
+<Layout title="Tal & Toastmasters">
+  <div class="speeches-page">
+    <section class="speeches-hero" aria-labelledby="speeches-title">
+      <p class="kicker">14 AUGUSTI 2027</p>
+      <h1 id="speeches-title">Tal & toastmasters</h1>
+      <p class="hero-intro">Har du något du vill säga, sjunga, visa eller hitta på under middagen? Då är det Jakob och Mathilda du ska prata med.</p>
+      <p class="quiet-note">De håller i trådarna – ni står för överraskningarna.</p>
+    </section>
+
+    <section class="chapter contributions" aria-labelledby="contributions-title">
+      <header class="chapter-heading">
+        <div><p class="kicker">TAL & SPEX</p><h2 id="contributions-title">Har du något på hjärtat?</h2></div>
+        <span class="chapter-number" aria-hidden="true">01</span>
+      </header>
+      <div class="editorial-pair">
+        <div>
+          <p>Tal, sång, spex, film, quiz eller något helt annat – vill du bidra med något under middagen blir vi jätteglada.</p>
+          <p>För att kvällen ska flyta på så bra som möjligt vill våra toastmasters gärna veta om det i förväg. Hör därför av dig till Jakob eller Mathilda och berätta kort vad du har tänkt dig.</p>
+          <p class="quiet-note">Du behöver inte avslöja alla detaljer – även överraskningar får vara överraskningar.</p>
+        </div>
+        <aside class="registration ruled-item" aria-labelledby="registration-title">
+          <p class="kicker">ANMÄLAN</p>
+          <h3 id="registration-title">Anmäl ditt bidrag</h3>
+          <p>Vill du hålla tal eller hitta på något annat under middagen? Meddela gärna våra toastmasters senast <strong class="deadline">{deadline}</strong>.</p>
+          <p>Berätta gärna:</p>
+          <ul class="registration-details">
+            <li>vem du är</li>
+            <li>vad du vill göra</li>
+            <li>ungefär hur lång tid du behöver</li>
+            <li>om du behöver något särskilt, till exempel projektor, mikrofon eller musik</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="chapter hosts" aria-labelledby="hosts-title">
+      <header class="chapter-heading">
+        <div><p class="kicker">ERA TOASTMASTERS</p><h2 id="hosts-title">Jakob & Mathilda</h2></div>
+        <span class="chapter-number" aria-hidden="true">02</span>
+      </header>
+      <p class="hosts-intro">Jakob och Mathilda kommer att hålla ihop middagen, presentera talare och se till att kvällen rullar vidare i lagom ordnad – och förhoppningsvis ganska rolig – takt.</p>
+      <div class="editorial-pair portraits">
+        {toastmasters.map((person) => (
+          <article class="person" aria-label={`Toastmaster ${person.name}`}>
+            {person.photo ? (
+              <img class="portrait" src={person.photo} alt={`Porträtt av ${person.name}`} width="640" height="800" loading="lazy" />
+            ) : (
+              <div class="portrait portrait-placeholder" role="img" aria-label={`Porträtt av ${person.name} kommer snart`}>
+                <span class="portrait-initial" aria-hidden="true">{person.name[0]}</span>
+                <span>Porträtt av {person.name}<br />kommer snart</span>
+              </div>
+            )}
+            <h3>{person.name}</h3>
+            <p class="kicker">Toastmaster</p>
+            <dl class="contact-details">
+              <div><dt>E-post</dt><dd>{person.email.startsWith('[') ? <span>{person.email}</span> : <a href={`mailto:${person.email}`}>{person.email}</a>}</dd></div>
+              <div><dt>Telefon</dt><dd>{person.phone.startsWith('[') ? <span>{person.phone}</span> : <a href={`tel:${person.phone.replace(/[^+\d]/g, '')}`}>{person.phone}</a>}</dd></div>
+            </dl>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="chapter dinner-notes" aria-labelledby="notes-title">
+      <header class="chapter-heading">
+        <div><p class="kicker">INFÖR MIDDAGEN</p><h2 id="notes-title">Några små önskemål</h2></div>
+        <span class="chapter-number" aria-hidden="true">03</span>
+      </header>
+      <div class="editorial-trio">
+        {wishes.map((wish) => <article class="ruled-item"><h3 class="kicker">{wish.title}</h3><p>{wish.text}</p></article>)}
+      </div>
+    </section>
+    <div class="closing"><p class="quiet-note">Vi ser fram emot en middag fylld av skratt, fina ord och förhoppningsvis lagom många pinsamma historier.</p></div>
+  </div>
+</Layout>
+
+<style>
+  .speeches-page { --ink:#292522; --blush:#eedfd9; color:var(--ink); }
+  .speeches-page section { margin-bottom:clamp(28px,4vw,48px); }
+  .speeches-page p { margin:0; color:var(--ink); line-height:1.8; }
+  .speeches-page p + p { margin-top:18px; }
+  .speeches-page .kicker { margin:0 0 20px; color:var(--burgundy); font-family:inherit; font-size:.72rem; font-weight:700; letter-spacing:.3em; line-height:1.6; text-transform:uppercase; }
+  .speeches-hero { max-width:930px; margin-inline:auto; padding:clamp(40px,6vw,72px) 20px clamp(32px,4vw,48px); text-align:center; }
+  h1,h2,h3 { color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-weight:400; overflow-wrap:anywhere; }
+  .speeches-hero h1 { margin:0; font-size:clamp(2.6rem,7.7vw,6.5rem); line-height:.98; }
+  .speeches-hero .hero-intro { max-width:720px; margin:28px auto 0; font-size:clamp(1.05rem,1.7vw,1.25rem); line-height:1.75; }
+  .speeches-page .quiet-note { color:var(--burgundy); font-family:Georgia,'Times New Roman',serif; font-style:italic; }
+  .speeches-hero .quiet-note { margin-top:22px; }
+  .chapter { padding:clamp(28px,5vw,56px); }
+  .contributions { background:rgba(238,223,217,.38); }
+  .hosts { background:var(--blush); }
+  .chapter-heading { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px; align-items:start; margin-bottom:clamp(32px,4vw,46px); }
+  .chapter-heading h2 { margin:0; font-size:clamp(2.8rem,5.7vw,4.9rem); line-height:1.04; }
+  .chapter-number { color:rgba(104,29,50,.16); font-family:Georgia,'Times New Roman',serif; font-size:clamp(4rem,8vw,7rem); line-height:1; }
+  .editorial-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(32px,6vw,72px); }
+  .ruled-item { min-width:0; padding-top:26px; border-top:1px solid rgba(104,29,50,.3); }
+  h3 { margin:0 0 18px; font-size:clamp(1.8rem,3vw,2.5rem); line-height:1.15; }
+  .deadline { color:var(--burgundy); white-space:nowrap; }
+  .registration-details { list-style:none; margin:14px 0 0; padding:0; display:grid; gap:0; }
+  .registration-details li { padding:10px 0; border-top:1px solid var(--border); line-height:1.6; }
+  .registration-details li::before { content:none; }
+  .hosts-intro { max-width:720px; }
+  .portraits { margin-top:36px; }
+  .person { min-width:0; }
+  .portrait { display:block; width:100%; height:auto; aspect-ratio:4 / 5; object-fit:cover; }
+  .portrait-placeholder { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; padding:20px; background:rgba(248,244,237,.6); border:1px solid var(--border); color:var(--burgundy); text-align:center; font-size:.8rem; }
+  .portrait-initial { font-family:Georgia,'Times New Roman',serif; font-size:clamp(4rem,9vw,7rem); line-height:1; color:rgba(104,29,50,.24); }
+  .person h3 { margin:24px 0 8px; font-size:clamp(2.5rem,4vw,3.5rem); }
+  .contact-details { margin:0; border-top:1px solid rgba(104,29,50,.25); }
+  .contact-details > div { padding-top:12px; }
+  .contact-details dt { color:var(--muted); font-size:.8rem; }
+  .contact-details dd { margin:0; overflow-wrap:anywhere; }
+  .contact-details a { display:inline-flex; align-items:center; min-height:44px; color:var(--burgundy); text-underline-offset:4px; }
+  .contact-details a:focus-visible { outline:2px solid var(--burgundy); outline-offset:4px; }
+  .editorial-trio { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(24px,3vw,40px); }
+  .closing { max-width:650px; margin:auto; text-align:center; }
+  .closing::before { content:''; display:block; width:64px; height:1px; margin:0 auto 24px; background:rgba(104,29,50,.3); }
+  @media (max-width:900px) { .editorial-trio { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:620px) {
+    .speeches-hero { padding-inline:0; }
+    .chapter { padding:28px 20px; }
+    .chapter-heading { grid-template-columns:1fr; gap:14px; }
+    .chapter-number { grid-row:1; font-size:4rem; }
+    .chapter-heading h2 { font-size:clamp(2.3rem,8.5vw,3.3rem); }
+    .editorial-pair,.editorial-trio { grid-template-columns:1fr; gap:30px; }
+  }
+</style>

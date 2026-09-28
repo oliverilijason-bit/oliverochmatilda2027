@@ -1,12 +1,13 @@
 ---
 const { title = 'Oliver & Matilda' } = Astro.props;
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const navigation = [
   { label: 'START', href: '/' },
   { label: 'HELGEN', href: '/helgen' },
   { label: 'TEMA & KLÄDSEL', href: '/tema-kladsel' },
   { label: 'UPPTÄCK OMRÅDET', href: '/upptack-omradet' },
   { label: 'PRAKTISK INFO', href: '/travel' },
+  { label: 'TAL & TOASTMASTERS', href: '/tal-toastmasters' },
   { label: 'ÖNSKELISTA', href: '/onskelista' },
   { label: 'FAQ', href: '/info' },
   { label: 'OSA', href: '/osa' },
@@ -44,7 +45,7 @@ const navigation = [
   .page-shell { min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; }
   .site-header { position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding: 18px clamp(20px,3vw,40px); background: rgba(255,255,255,.78); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(155,119,102,.16); }
   .brand { color: #2f3438; text-decoration: none; font-weight: 700; letter-spacing: .15em; }
-  nav { display: flex; flex-wrap: wrap; gap: 18px; }
+  nav { display: flex; flex-wrap: wrap; gap: 14px; }
   nav a { color: #646d71; text-decoration: none; font-size: .78rem; text-transform: uppercase; letter-spacing: .15em; transition: color .2s ease, transform .2s ease; }
   nav a:hover { color: #2f3438; transform: translateY(-1px); }
   nav a.active { color: var(--burgundy); }
