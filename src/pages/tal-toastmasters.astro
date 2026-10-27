@@ -2,23 +2,23 @@
 import Layout from '../layouts/Layout.astro';
 
 // Fill in the deadline once it has been decided.
-const deadline = '[DATUM]';
+const deadline = '14/6';
 // Shared photo in public/images/toastmasters. Leave empty to show the placeholder.
 const sharedPhoto = '/images/toastmasters/jakob-mathilda.PNG';
 // Replace these placeholders with real details to enable email and telephone links.
-const sharedEmail = '[GEMENSAM TOASTMASTER-MAIL]';
+const sharedEmail = 'olivermatilda2027@gmail.com';
 const phoneContacts = [
-  { name: 'Jakob', phone: '[TELEFON JAKOB]' },
-  { name: 'Mathilda', phone: '[TELEFON MATHILDA]' },
+  { name: 'Jakob', phone: '+46 723 068 420' },
+  { name: 'Mathilda', phone: '+46 706 168 191' },
 ];
 const wishes = [
-  { title: 'TID', text: 'Försök gärna hålla talet relativt kort och kärnfullt (max 5min). Toastmasters hjälper till att planera kvällens schema och återkommer om ungefärlig tid.' },
+  { title: 'TID', text: 'Försök gärna hålla talet relativt kort och kärnfullt (max 3min). Toastmasters hjälper till att planera kvällens schema och återkommer om ungefärlig tid.' },
   { title: 'TEKNIK', text: 'Behöver du musik, mikrofon, projektor eller något annat till ditt inslag? Berätta det när du anmäler dig så försöker vi ordna det.' },
   { title: 'HEMLIGHETER', text: 'Planerar du en överraskning för brudparet? Inga problem. Jakob och Mathilda håller gärna hemligheten och hjälper dig att få in den på rätt plats under kvällen.' },
 ];
 ---
 
-<Layout title="Tal & Toastmasters">
+<Layout title="Tal & Toastmaster">
   <div class="speeches-page">
     <section class="speeches-hero" aria-labelledby="speeches-title">
       <p class="kicker">14 AUGUSTI 2027</p>
@@ -33,8 +33,9 @@ const wishes = [
       </header>
       <div class="editorial-pair">
         <div>
-          <p>Tal, sång, spex, film, quiz eller något helt annat! Vill du bidra med något under middagen blir vi jätteglada. Tänk däremot på att vi önskar att ni håller er inom 3-4 minuter.</p>
-          <p>För att kvällen ska flyta på så bra som möjligt vill våra toastmasters gärna veta om det i förväg. Hör därför av dig till Jakob eller Mathilda och berätta kort vad du har tänkt dig.</p>
+          <p>Hej på er! Vi är Jakob & Mathilda som är toastmaster och toastmadame på bröllopet, och det är vi som kommer hålla stämningen till max!<p>
+          </p> Tal, sång, spex, film, quiz eller något helt annat! Vill du bidra med något under middagen blir vi jätteglada. Tänk däremot på att alla tal och aktiviteter måste vara förannonserade till oss och vi önskar att ni håller ert tal max tre minuter.</p>
+          <p>För att kvällen ska flyta på så bra som möjligt vill vi veta om det i förväg. Hör därför av dig till oss och berätta kort vad du har tänkt dig.</p>
           <p class="quiet-note">Du behöver inte avslöja alla detaljer, även överraskningar får vara överraskningar.</p>
         </div>
         <aside class="registration ruled-item" aria-labelledby="registration-title">
@@ -45,7 +46,6 @@ const wishes = [
           <ul class="registration-details">
             <li>vem du är</li>
             <li>vad du vill göra</li>
-  
             <li>om du behöver något särskilt, till exempel projektor, mikrofon eller musik</li>
           </ul>
         </aside>
@@ -54,10 +54,10 @@ const wishes = [
 
     <section class="chapter hosts" aria-labelledby="hosts-title">
       <header class="chapter-heading">
-        <div><p class="kicker">VÅRA TOASTMASTERS</p><h2 id="hosts-title">Jakob & Mathilda</h2></div>
+        <div><p class="kicker">VÅRA TOASTMASTERS</p><h2 id="hosts-title">Kontaktuppgifter</h2></div>
         <span class="chapter-number" aria-hidden="true">02</span>
       </header>
-      <p class="hosts-intro">Jakob och Mathilda kommer att hålla ihop middagen, presentera talare och se till att kvällen rullar vidare i lagom ordnad, och förhoppningsvis ganska rolig takt!</p>
+      <p class="hosts-intro">Vi kommer att hålla ihop middagen, presentera talare och se till att kvällen rullar vidare i lagom ordnad, och förhoppningsvis ganska rolig takt!</p>
       <div class="shared-photo">
         {sharedPhoto ? (
           <img src={sharedPhoto} alt="Jakob och Mathilda tillsammans" width="1200" height="800" loading="lazy" />

@@ -2,16 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 
 const friday = [
-  { time: 'Kring lunch', title: 'Golf på Bosjökloster GK', text: 'Vi anordnar en avslappnad golftävling på Bosjökloster Golfklubb för alla som vill vara med och spela.' },
-  { time: 'Samtidigt', title: 'Picknick i parken', text: 'För er som inte spelar golf blir det picknick i parken med bubbel och möjlighet att bara umgås och njuta av eftermiddagen.' },
-  { time: 'På kvällen', title: 'Mingelmiddag på Höörs Gästis', text: 'På kvällen samlas vi på Höörs Gästis för en avslappnad mingelmiddag tillsammans. Det är också här många av oss kommer att bo under helgen.' },
+  { time: 'ca kl. 12', title: 'Golftävling på Bosjökloster GK', text: 'Vi samlas för en golfrunda på Bosjökloster Golfklubb (grönt kort krävs) och kickar igång helgen på bästa sätt. Detta, lovar Oliver, vill ni inte missa!' },
+  { time: 'ca kl. 14', title: 'BUBBEL i slottsparken -', text: 'Vid tvåtiden börjar vi samlas i slottsparken, golfarna ansluter när de är klara. Ni kommer när ni kan efter avslutad jobbvecka, som paus från semester eller helt enkelt när ni är redo att starta bröllopshelgen med oss. Med bubbel i glasen, lättare tilltugg, lite spel och riktigt härligt häng hoppas vi få en eftermiddag där vi kan umgås och träffas – under lite lugnare former som kanske inte riktigt hinns med när lördagens bröllopspirrande och firande väl drar igång. Vi lovar lite prisutdelning  när golfarna ansluter till bubblarna... På fredagen kommer ni precis som ni är' },
+  { time: 'ca kl. 18', title: 'Mingelmiddag på Höörs Gästis', text: 'När eftermiddagen börjar gå mot kväll tar vi oss på egen hand till Höörs Gästgifwaregård (ca 8 km) för en gemensam grillbuffé och mingel. Många av er kanske bor kvar där under helgen. Mer information om anmälan till golfen och fredagens upplägg kommer när det närmar sig.' },
 ];
 
 const saturday = [
-  { time: 'Förmiddag', title: 'Fri tid', text: 'Inget är planerat under förmiddagen, så använd tiden precis som ni vill.', link: { href: '/upptack-omradet', label: 'Se våra tips för området' } },
-  { time: '16.00', title: 'Vigsel på Bosjökloster', text: 'Vi samlas på Bosjökloster för vigsel och början på kvällens firande.' },
-  { time: 'Efter vigseln', title: 'Bröllopsskål', text: 'Efter vigseln fortsätter vi med bröllopsskål, mingel och tid tillsammans innan middagen.' },
-  { time: 'Kväll', title: 'Middag & fest', text: 'Därefter väntar middag, tal, dans och en lång kväll tillsammans.' },
+  { time: 'Förmiddag', title: 'Uppladdning ', text: '– Inget planerat under förmiddagen, så använd tiden precis som ni själva önskar.', link: { href: '/upptack-omradet', label: 'Se våra tips för området' } },
+  { time: '16.00', title: 'Vigsel på Bosjökloster', text: 'Vigseln startar när klockorna ringer. Efter varsitt JA startar dagens firande på riktigt!' },
+  { time: 'Efter vigseln', title: 'Bröllopsskål', text: 'Bröllopsskål vid slottet ' },
+  { time: 'Kväll', title: 'Middag & fest', text: 'Dags för middag, fest och dans, nu ska vi fira!' },
 ];
 ---
 
@@ -20,7 +20,7 @@ const saturday = [
     <section class="weekend-hero" aria-labelledby="weekend-title">
       <p class="kicker">13–14 AUGUSTI 2027</p>
       <h1 id="weekend-title">Helgen</h1>
-      <p class="weekend-hero__intro">Vi hoppas att ni vill göra en hel helg av det tillsammans med oss. Fredagen blir en avslappnad start med aktiviteter, middag och mingel – och på lördagen är det dags för bröllop på Bosjökloster.</p>
+      <p class="weekend-hero__intro">Ni är varmt välkomna att börja fira tillsammans med oss redan på fredagen. Det skulle betyda mycket för oss att få lite extra tid tillsammans med er inför vår stora helg. </p>
       <p class="weekend-hero__note">Exakta tider och detaljer fylls på närmare bröllopet.</p>
     </section>
 
@@ -28,7 +28,9 @@ const saturday = [
       <header class="day__header">
         <p class="kicker">FREDAG 13 AUGUSTI</p>
         <h2 id="friday-title">Vi startar helgen tillsammans</h2>
-        <p>För er som är på plats redan på fredagen börjar vi helgen i lugnt tempo – med golf, picknick, bubbel och en gemensam middag på kvällen.</p>
+        <p>För er som kan komma redan under fredagen har vi planerat lite olika aktiviteter. Ni ansluter när det passar er bäst. Ni är välkomna när som under dagen och kvällen!
+Det roliga för oss är att ni vill vara med och starta helgen tillsammans med oss. Har ni inte möjlighet att komma redan på fredagen kommer ni när det passar er på lördagen, när klockorna ringer. Den viktigaste stunden!
+</p>
       </header>
       <div class="editorial-timeline">
         {friday.map((item) => (
@@ -45,7 +47,9 @@ const saturday = [
       <header class="day__header">
         <p class="kicker">LÖRDAG 14 AUGUSTI</p>
         <h2 id="saturday-title">Bröllopsdagen</h2>
-        <p>Lördagsförmiddagen är helt fri. Sov länge, ta ett dopp, gå på spa eller upptäck området – sedan ses vi på Bosjökloster.</p>
+        <p>Lördagsförmiddagen är helt fri. Sov länge, ta ett dopp i Ringsjön, testa gästgiveriets dagspa eller upptäck området inne på slottsområdet – det finns allt från lamor (!) till rosor att beundra. 
+Vi ses vi när kyrkklockorna ringer!
+</p>
       </header>
       <div class="editorial-timeline">
         {saturday.map((item) => (
